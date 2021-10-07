@@ -5,7 +5,7 @@ name: k8s-cluster
 
 steps:
   - name: initialize aws plugin for terraform
-    image: samuellucas/ansibleterraform:latest
+    image: mateusmuller2/ansibleandterraform:latest
     environment:
       AWS_ACCESS_KEY_ID:
         from_secret: aws_access
