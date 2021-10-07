@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_key_pair" "k8s-key" {
   key_name   = "k8s-key"
-  public_key = ""
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCeVcJk1LFCHhnJv97EDw0S7TVoB+Tb5KPDpbTVIq6jPP/ruGLs7Tq0LB2dVnt3bQQR7yOpsVtOjyyrDpcn64nCabh/gP9+eVOQUYdjEAepQEksUhoKq0yU/W5Jtz5O6k9kKhBNkffGkIfhlEWT8AR7DVSQ+F2961YPpcrML453+WaT6CjG1sJw5ZRR1f5vFvjZi45f0YE3kMTkhboCgoHH9l9xIGaRA35Hpf8ab9gJKpCzgEhzYHYKEI+f/jD/VDWlkeOoedtmW1yYrVO7KPNxBgKfIQWUjxn9w9eS/gcL5GSwMPc4tW2UjOIhEtJbsWrJcbiJ8G4WGHdMY1WuwG+crZlMN5sSPoTzRrJ5pV08m7I07y3LuvxDuSPWLD+veivz0bsKBFZEYn365yNDrZA8q33qbm2jE5S2Lz36iZasfrIiJjiffPRoefBloU24HucYS3MZEDM2ATu9WCKdO99MqQJYUVAkAOKbdiNAwMGtpjj1g14vA8sh2DXmNJFTMDs= samuel@MacBook-de-Samuel.local"
 }
 
 resource "aws_security_group" "k8s-sg" {
