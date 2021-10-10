@@ -24,7 +24,8 @@ steps:
     commands:
       - terraform apply -auto-approve
 
-  - name: apply ansible playbook
+  
+      - name: apply ansible playbook
     image: samuellucas/ansibleterraform:latest
     environment:
       AWS_ACCESS_KEY_ID:
