@@ -38,5 +38,4 @@ steps:
       - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
       - unset PRIVATE_KEY
       - chmod 600 ~/.ssh/id_rsa
-      - chmod 755 ec2.py
       - ansible-playbook --u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
