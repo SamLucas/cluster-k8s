@@ -39,4 +39,4 @@ steps:
       - unset PRIVATE_KEY
       - chmod 600 ~/.ssh/id_rsa
       - chmod 755 ec2.py
-      - ansible-playbook -i ec2.py --limit "tag_name_k8s" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
+      - ansible-playbook --u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml

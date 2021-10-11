@@ -1,0 +1,25 @@
+plugin: aws_ec2
+regions:
+  - us-east-1
+
+keyed_groups:
+  - key: tags.type
+  - key: tags.name
+
+filters:
+  instance-state-name: running
+compose:
+  ansible_host: public_ip_address
+
+# filters:
+#   tag:name: worker
+# tag:type:
+#   - master
+#   - worker
+
+strict_permissions: False
+# AWS CLI Command Reference > https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html#options
+
+# Sources:
+# - https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_ec2_inventory.html#examples
+# - https://faun.pub/learning-the-ansible-aws-ec2-dynamic-inventory-plugin-59dd6a929c7f

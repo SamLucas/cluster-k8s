@@ -1,18 +1,22 @@
 - name: Install k8s and docker packages
   become: yes
-  hosts: tag_name_k8s
+  hosts: _k8s
   roles:
     - docker
     - k8s-all
 
 - name: Setup master node
   become: yes
-  hosts: tag_type_master
+  hosts: _master
   roles:
     - k8s-master
 
 - name: Setup worker node
   become: yes
-  hosts: tag_type_worker
+  hosts: _worker
   roles:
     - k8s-worker
+# Command: export KUBECONFIG=/etc/kubernetes/admin.conf
+# Source:
+# - https://clarusway.com/ansible-working-with-dynamic-inventory-using-aws-ec2-plugin/
+# correction yml file: yamlchecker.

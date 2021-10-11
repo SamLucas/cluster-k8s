@@ -1,8 +1,14 @@
 - name: Destroy cluster before starting again
   command: kubeadm reset -f
 
+- name: Copy Remote-To-Server (kubeadm-config.yaml)
+  synchronize:
+    src: ./kubeadm-config.yaml
+    dest: /home/ubuntu
+
 - name: Initialize k8s cluster
-  command: kubeadm init
+  # command: kubeadm init
+  command: kubeadm init --config kubeadm-config.yaml
   register: kubeadm_init_output
 
 - name: Create file with output
@@ -24,8 +30,3 @@
     rm -fr join/{{ inventory_hostname }}
   delegate_to: localhost
   become: no
-
-- name: Install pod network
-  command: kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
-  environment:
-    KUBECONFIG: /etc/kubernetes/admin.conf
