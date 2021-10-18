@@ -6,7 +6,7 @@ Desenvolvido por [Mateus Muller](https://github.com/mateusmuller/k8s-cluster-spi
 
 # Arquitetura
 
-Inicialmente 3 instâncias são configuradas pelo Terraform, com grupo de segurançã e um par de chaves. O estado da aplicação(TF.state) será armazenado em um bucket na S3.
+Inicialmente 3 instâncias são configuradas pelo Terraform, com grupo de segurança e um par de chaves. O estado da aplicação(TF.state) será armazenado em um bucket na S3.
 
 Logo em seguida a instalação e configuração do cluster é definida no site.yml e executada pelo Ansible.
 
@@ -39,7 +39,7 @@ roles_path = ./roles
 forks = 1000
 ```
 
-Criei o arquivo de configuração do plugin no arquivo: `./ansible_plugins/get_groups_instances_tag_k8s_aws_ec2`. A escolha do nome é livre, mas o sufixo deve ser `_aws_ec2.yml`. O arquivo contém as seguintes informações:
+Criei o arquivo de configuração do plugin no arquivo: `./ansible_plugins/get_groups_instances_tag_k8s_aws_ec2` sendo escolha do nome, livre, mas o sufixo deve ser `_aws_ec2.yml`. O arquivo contém as seguintes informações:
 
 ```
 plugin: aws_ec2
@@ -117,7 +117,7 @@ Você pode conferir com mais detalhes em: [clarusway.com](https://clarusway.com/
 
 Depois de ter configurado o ansible com as instancias criadas pelo terraform, encontramos um alguns problemas na incialização do clustes. O serviço `kubelete` não estava iniciando. Depois de um tempo observando percebi que o serviço não incia antes de configurar o plano de controle do Kubernetes(`kubectl init`), mas que era possivel ativar-lo em seguida.
 
-Então para resolver esse problema encontramos na [documentação oficial](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/configure-cgroup-driver/) um modelo de configuração(`kubeadm-config.yaml`) para que o `kubelete` podesse funcionar normalmente:
+Então para resolver esse problema encontrei na [documentação oficial](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/configure-cgroup-driver/) um modelo de configuração(`kubeadm-config.yaml`) para que o `kubelete` podesse funcionar normalmente:
 
 ```
 # kubeadm-config.yaml
@@ -141,7 +141,7 @@ Para funcionar, é necessário enviar esse arquivo de configuração para cada i
 
 ATENÇÃO!
 
-Para enviar o arquivo para cada instância, é obrigatório que o `rysnc` esteja adicionado em seu Dockerfile para fazer a instalação! Caso o contra você vai encontrar uma mensagem semelhante a essa em seu pipeline:
+Para enviar o arquivo para cada instância, é obrigatório que o `rysnc` esteja adicionado em seu Dockerfile para fazer a instalação! Caso o contrario você vai encontrar uma mensagem semelhante a essa em seu pipeline:
 
 ```
 Failed to find required executable rsync in paths:
