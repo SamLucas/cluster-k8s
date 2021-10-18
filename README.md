@@ -1,6 +1,6 @@
 # Cluster K8S
 
-Desenvolvido por [Mateus Muller](https://github.com/mateusmuller/k8s-cluster-spinup), esse projeto é uma reprodução para fins acadêmicos usando: Terraform, Ansible, Drone CI, Docker, Kubernetes e AWS.
+Desenvolvido por [Mateus Muller](https://github.com/mateusmuller/k8s-cluster-spinup), esse projeto é uma reprodução para conhecer algumas ferramentas como: Terraform, Ansible, Drone CI, Docker, Kubernetes e AWS.
 
 <br><img alt="Arquitetura do projeto" width="100%" src="./image/projeto_cluster_k8s.png"><br><br>
 
